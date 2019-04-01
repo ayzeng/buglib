@@ -1,14 +1,14 @@
 app.controller("baseController",function ($scope) {
-    //分页控件配置
-    $scope.paginationConf={
-        currentPage:1,
-        totalItems:10,
-        itemsPerPage:10,
-        perPageOptions:[10,20,30,40,50],
-        onChange:function () {
-            $scope.reloadList();
-        }
-    };
+        //分页控件配置
+        $scope.paginationConf={
+            currentPage:1,
+            totalItems:10,
+            itemsPerPage:10,
+            perPageOptions:[10,20,30,40,50],
+            onChange:function () {
+                $scope.reloadList();
+            }
+        };
 
     //刷新列表
     $scope.reloadList = function(){
@@ -27,5 +27,19 @@ app.controller("baseController",function ($scope) {
             var index = $scope.selectIds.indexOf(id);//返回id在集合中位置
             $scope.selectIds.splice(index,1);//从index位置移除1个元素
         }
+    };
+
+    $scope.jsonToString=function(jsonString,key){
+        var json= JSON.parse(jsonString);
+        var value="";
+
+        for(var i=0;i<json.length;i++){
+            if(i>0){
+                value+=",";
+            }
+            value +=json[i][key];
+        }
+
+        return value;
     };
 });

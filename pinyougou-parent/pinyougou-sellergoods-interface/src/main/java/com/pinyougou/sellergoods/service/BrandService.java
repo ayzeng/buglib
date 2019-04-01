@@ -4,6 +4,7 @@ import com.entity.PageResult;
 import com.pinyougou.pojo.TbBrand;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BrandService {
 
@@ -26,4 +27,10 @@ public interface BrandService {
     void delete(Long[] ids);
 
     public PageResult findPage(TbBrand tbBrand,int pageNum, int pageSize);
+
+    /**
+     * 返回下拉列表
+     * @return
+     */
+    public List<Map> selectOptionList();
 }
